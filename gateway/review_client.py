@@ -2,7 +2,7 @@ import grpc
 from . import review_pb2, review_pb2_grpc
 
 
-channel = grpc.insecure_channel('localhost:50052') 
+channel = grpc.insecure_channel('192.168.15.12:50052') 
 stub = review_pb2_grpc.ReviewServiceStub(channel)
 
 def add_review(book_id: int, rating: int, comment: str):
