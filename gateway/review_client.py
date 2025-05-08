@@ -1,5 +1,6 @@
 import grpc
-from gateway import review_pb2, review_pb2_grpc
+from . import review_pb2, review_pb2_grpc
+
 
 channel = grpc.insecure_channel('localhost:50052') 
 stub = review_pb2_grpc.ReviewServiceStub(channel)
