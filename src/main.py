@@ -3,8 +3,18 @@ from pydantic import BaseModel
 
 from src.book_client import get_book, get_books
 from src.review_client import add_review, get_reviews
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 
 @app.get("/books")
 def list_books():
