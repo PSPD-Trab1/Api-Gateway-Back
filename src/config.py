@@ -1,0 +1,19 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# BOOKSTORE_SERVICE_HOST = os.getenv("BOOKSTORE_SERVICE_HOST", "localhost")
+# BOOKSTORE_SERVICE_PORT = os.getenv("BOOKSTORE_SERVICE_PORT", "5001")
+
+# REVIEW_SERVICE_HOST = os.getenv("REVIEW_SERVICE_HOST", "localhost")
+# REVIEW_SERVICE_PORT = os.getenv("REVIEW_SERVICE_PORT", "5002")
+
+# GATEWAY_HOST = os.getenv("GATEWAY_HOST", "0.0.0.0")
+# GATEWAY_PORT = os.getenv("GATEWAY_PORT", "5003")
+
+BOOKSTORE_SERVICE_HOST = "localhost"
+BOOKSTORE_SERVICE_PORT = "50051"
+
+REVIEW_SERVICE_HOST = "localhost"
+REVIEW_SERVICE_PORT = "50052"

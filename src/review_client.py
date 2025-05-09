@@ -1,8 +1,10 @@
 import grpc
-from . import review_pb2, review_pb2_grpc
+import src.protos.review_pb2 as review_pb2
+import src.protos.review_pb2_grpc as review_pb2_grpc
 
+from src.config import REVIEW_SERVICE_HOST, REVIEW_SERVICE_PORT
 
-channel = grpc.insecure_channel('192.168.15.12:50052') 
+channel = grpc.insecure_channel(f"{REVIEW_SERVICE_HOST}:{REVIEW_SERVICE_PORT}") 
 stub = review_pb2_grpc.ReviewServiceStub(channel)
 
 def add_review(book_id: int, rating: int, comment: str):

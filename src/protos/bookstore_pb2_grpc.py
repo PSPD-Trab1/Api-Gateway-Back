@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import book_service_pb2 as book__service__pb2
+from src.protos import bookstore_pb2 as protos_dot_bookstore__pb2
 
 GRPC_GENERATED_VERSION = '1.71.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in book_service_pb2_grpc.py depends on'
+        + f' but the generated code in protos/bookstore_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,28 +36,28 @@ class BookstoreServiceStub(object):
         """
         self.CreateBook = channel.unary_unary(
                 '/bookstore.BookstoreService/CreateBook',
-                request_serializer=book__service__pb2.Book.SerializeToString,
-                response_deserializer=book__service__pb2.BookResponse.FromString,
+                request_serializer=protos_dot_bookstore__pb2.Book.SerializeToString,
+                response_deserializer=protos_dot_bookstore__pb2.BookResponse.FromString,
                 _registered_method=True)
         self.GetBook = channel.unary_unary(
                 '/bookstore.BookstoreService/GetBook',
-                request_serializer=book__service__pb2.BookRequest.SerializeToString,
-                response_deserializer=book__service__pb2.BookResponse.FromString,
+                request_serializer=protos_dot_bookstore__pb2.BookRequest.SerializeToString,
+                response_deserializer=protos_dot_bookstore__pb2.BookResponse.FromString,
                 _registered_method=True)
         self.GetBooks = channel.unary_unary(
                 '/bookstore.BookstoreService/GetBooks',
-                request_serializer=book__service__pb2.Empty.SerializeToString,
-                response_deserializer=book__service__pb2.BooksListResponse.FromString,
+                request_serializer=protos_dot_bookstore__pb2.Empty.SerializeToString,
+                response_deserializer=protos_dot_bookstore__pb2.BooksListResponse.FromString,
                 _registered_method=True)
         self.UpdateBook = channel.unary_unary(
                 '/bookstore.BookstoreService/UpdateBook',
-                request_serializer=book__service__pb2.Book.SerializeToString,
-                response_deserializer=book__service__pb2.BookResponse.FromString,
+                request_serializer=protos_dot_bookstore__pb2.Book.SerializeToString,
+                response_deserializer=protos_dot_bookstore__pb2.BookResponse.FromString,
                 _registered_method=True)
         self.DeleteBook = channel.unary_unary(
                 '/bookstore.BookstoreService/DeleteBook',
-                request_serializer=book__service__pb2.BookRequest.SerializeToString,
-                response_deserializer=book__service__pb2.Empty.FromString,
+                request_serializer=protos_dot_bookstore__pb2.BookRequest.SerializeToString,
+                response_deserializer=protos_dot_bookstore__pb2.Empty.FromString,
                 _registered_method=True)
 
 
@@ -99,28 +99,28 @@ def add_BookstoreServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateBook': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateBook,
-                    request_deserializer=book__service__pb2.Book.FromString,
-                    response_serializer=book__service__pb2.BookResponse.SerializeToString,
+                    request_deserializer=protos_dot_bookstore__pb2.Book.FromString,
+                    response_serializer=protos_dot_bookstore__pb2.BookResponse.SerializeToString,
             ),
             'GetBook': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBook,
-                    request_deserializer=book__service__pb2.BookRequest.FromString,
-                    response_serializer=book__service__pb2.BookResponse.SerializeToString,
+                    request_deserializer=protos_dot_bookstore__pb2.BookRequest.FromString,
+                    response_serializer=protos_dot_bookstore__pb2.BookResponse.SerializeToString,
             ),
             'GetBooks': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBooks,
-                    request_deserializer=book__service__pb2.Empty.FromString,
-                    response_serializer=book__service__pb2.BooksListResponse.SerializeToString,
+                    request_deserializer=protos_dot_bookstore__pb2.Empty.FromString,
+                    response_serializer=protos_dot_bookstore__pb2.BooksListResponse.SerializeToString,
             ),
             'UpdateBook': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateBook,
-                    request_deserializer=book__service__pb2.Book.FromString,
-                    response_serializer=book__service__pb2.BookResponse.SerializeToString,
+                    request_deserializer=protos_dot_bookstore__pb2.Book.FromString,
+                    response_serializer=protos_dot_bookstore__pb2.BookResponse.SerializeToString,
             ),
             'DeleteBook': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteBook,
-                    request_deserializer=book__service__pb2.BookRequest.FromString,
-                    response_serializer=book__service__pb2.Empty.SerializeToString,
+                    request_deserializer=protos_dot_bookstore__pb2.BookRequest.FromString,
+                    response_serializer=protos_dot_bookstore__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -148,8 +148,8 @@ class BookstoreService(object):
             request,
             target,
             '/bookstore.BookstoreService/CreateBook',
-            book__service__pb2.Book.SerializeToString,
-            book__service__pb2.BookResponse.FromString,
+            protos_dot_bookstore__pb2.Book.SerializeToString,
+            protos_dot_bookstore__pb2.BookResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -175,8 +175,8 @@ class BookstoreService(object):
             request,
             target,
             '/bookstore.BookstoreService/GetBook',
-            book__service__pb2.BookRequest.SerializeToString,
-            book__service__pb2.BookResponse.FromString,
+            protos_dot_bookstore__pb2.BookRequest.SerializeToString,
+            protos_dot_bookstore__pb2.BookResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -202,8 +202,8 @@ class BookstoreService(object):
             request,
             target,
             '/bookstore.BookstoreService/GetBooks',
-            book__service__pb2.Empty.SerializeToString,
-            book__service__pb2.BooksListResponse.FromString,
+            protos_dot_bookstore__pb2.Empty.SerializeToString,
+            protos_dot_bookstore__pb2.BooksListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -229,8 +229,8 @@ class BookstoreService(object):
             request,
             target,
             '/bookstore.BookstoreService/UpdateBook',
-            book__service__pb2.Book.SerializeToString,
-            book__service__pb2.BookResponse.FromString,
+            protos_dot_bookstore__pb2.Book.SerializeToString,
+            protos_dot_bookstore__pb2.BookResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -256,8 +256,8 @@ class BookstoreService(object):
             request,
             target,
             '/bookstore.BookstoreService/DeleteBook',
-            book__service__pb2.BookRequest.SerializeToString,
-            book__service__pb2.Empty.FromString,
+            protos_dot_bookstore__pb2.BookRequest.SerializeToString,
+            protos_dot_bookstore__pb2.Empty.FromString,
             options,
             channel_credentials,
             insecure,

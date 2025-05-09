@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from gateway.book_client import get_book, get_books
+from src.book_client import get_book, get_books
+from src.review_client import add_review, get_reviews
 
 app = FastAPI()
 
