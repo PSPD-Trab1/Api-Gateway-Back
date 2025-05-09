@@ -8,7 +8,7 @@ channel = grpc.insecure_channel(f"{REVIEW_SERVICE_HOST}:{REVIEW_SERVICE_PORT}")
 stub = review_pb2_grpc.ReviewServiceStub(channel)
 
 def add_review(book_id: int, rating: int, comment: str):
-    request = review_pb2.ReviewRequest(
+    request = review_pb2.AddReviewRequest(
         book_id=book_id,
         rating=rating,
         comment=comment
@@ -16,5 +16,5 @@ def add_review(book_id: int, rating: int, comment: str):
     return stub.AddReview(request)
 
 def get_reviews(book_id: int):
-    request = review_pb2.BookReviewRequest(book_id=book_id)
+    request = review_pb2.GetReviewsRequest(book_id=book_id)
     return stub.GetReviews(request)
