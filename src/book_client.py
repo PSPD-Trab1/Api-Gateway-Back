@@ -13,3 +13,6 @@ def get_books():
 
 def get_book(book_id: int):
     return stub.GetBook(bookstore_pb2.BookRequest(book_id=book_id))
+
+def create_book(book_id: str, name:str, author:str):
+    return stub.CreateBook(bookstore_pb2.Book(book_id=book_id, name=name, author=author))

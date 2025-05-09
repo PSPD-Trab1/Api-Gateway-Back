@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from src.book_client import get_book, get_books
+from src.book_client import get_book, get_books, create_book
 from src.review_client import add_review, get_reviews
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -20,6 +20,17 @@ app.add_middleware(
 def list_books():
     books_response = get_books()
     return {"books": [{"book_id": b.book_id, "name": b.name, "author": b.author} for b in books_response.books]}
+
+class BookInput(BaseModel):
+    book_id: int
+    name: str
+    author: str
+
+@app.post("/book")
+def post_create_book(book: BookInput):
+    book =  create_book(book.book_id, book.name, book.author)
+    return {"book_id": book.book_id, "name": book.name, "author": book.author}
+ 
 
 @app.get("/books/{book_id}")
 def get_single_book(book_id: int):
